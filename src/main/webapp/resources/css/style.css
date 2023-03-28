@@ -1,0 +1,16 @@
+body {
+	background-color: #3f3f3f;
+	color: rgb(255, 255, 255)128, 192);
+}
+
+td.centeredColumnContent {
+	text-align: center;
+}
+
+h1 {
+	font-weight: bold;
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	color: rgb(0, 128, 192);
+}

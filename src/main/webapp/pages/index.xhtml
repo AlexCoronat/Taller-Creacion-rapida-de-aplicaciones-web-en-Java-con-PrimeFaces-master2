@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"  >
+
+<h:head></h:head>
+<h:body>
+<h:form>
+ <h:commandButton value="Generar Listado" action="#{mjzBean.cargarListado()}" />
+ <br />
+ <p:dataTable id="tbl" var="visitante" value="#{mjzBean.visitantes}" paginator="true" rows="10">
+     <p:column>
+         <f:facet name="header">
+             <h:outputText value="Nombre" />
+         </f:facet>
+         <h:outputText value="#{visitante.nombre}" />
+     </p:column>
+     <p:column>
+         <f:facet name="header">
+             <h:outputText value="Apellido" />
+         </f:facet>
+         <h:outputText value="#{visitante.apellido}"/>
+     </p:column>
+     <p:column>
+         <f:facet name="header">
+             <h:outputText value="Edad" />
+         </f:facet>
+         <h:outputText value="#{visitante.edad}" />
+     </p:column>
+     <p:column>
+         <f:facet name="header">
+             <h:outputText value="Pais" />
+         </f:facet>
+         <h:outputText value="#{visitante.pais}" />
+     </p:column>
+ </p:dataTable>
+ <br />
+ <h:commandLink value="Exportar">
+        <p:dataExporter type="xls" target="tbl" fileName="visitantes" pageOnly="false" />
+    </h:commandLink>
+</h:form>
+</h:body>
+</html>
