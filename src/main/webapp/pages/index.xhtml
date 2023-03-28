@@ -5,41 +5,53 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"  >
 
+<f:loadBundle basename="com.perfecciondigital.tallerprimefaces.propiedades.messages" var="msg"></f:loadBundle>
+
 <h:head></h:head>
 <h:body>
 <h:form>
  <h:commandButton value="Generar Listado" action="#{mjzBean.cargarListado()}" />
  <br />
  <p:dataTable id="tbl" var="visitante" value="#{mjzBean.visitantes}" paginator="true" rows="10">
+ 
      <p:column>
          <f:facet name="header">
              <h:outputText value="Nombre" />
          </f:facet>
-         <h:outputText value="#{visitante.nombre}" />
+         <h:outputText value="#{visitante.nombre}" /> 
      </p:column>
+     
      <p:column>
          <f:facet name="header">
              <h:outputText value="Apellido" />
          </f:facet>
          <h:outputText value="#{visitante.apellido}"/>
      </p:column>
+     
      <p:column>
          <f:facet name="header">
              <h:outputText value="Edad" />
          </f:facet>
          <h:outputText value="#{visitante.edad}" />
      </p:column>
-     <p:column>
-         <f:facet name="header">
-             <h:outputText value="Pais" />
-         </f:facet>
+     
+     
+     <p:column headerText="#{msg.tablaPais}">
          <h:outputText value="#{visitante.pais}" />
      </p:column>
+     
  </p:dataTable>
- <br />
- <h:commandLink value="Exportar">
+ 
+ <br />  
+ 
+    <p:commandButton value="xSubmit" styleClass="mr-2 mb-2" ajax="false">
+    <p:dataExporter type="xls" target="tbl" fileName="visitantes" ></p:dataExporter>
+    </p:commandButton>
+    
+     <h:commandLink value="Exportar">
         <p:dataExporter type="xls" target="tbl" fileName="visitantes" pageOnly="false" />
     </h:commandLink>
+
 </h:form>
 </h:body>
 </html>
