@@ -45,11 +45,11 @@
  <br />  
  
     <p:commandButton value="xSubmit" styleClass="mr-2 mb-2" ajax="false">
-    <p:dataExporter type="xls" target="tbl" fileName="visitantes" ></p:dataExporter>
+    <p:dataExporter type="xls" target="tbl" fileName="visitantes" options="#{customizedDocumentsView.excelOpt}"></p:dataExporter>
     </p:commandButton>
     
      <h:commandLink value="Exportar">
-        <p:dataExporter type="xls" target="tbl" fileName="visitantes" pageOnly="false" />
+        <p:dataExporter type="xls" target="tbl" fileName="visitantes" pageOnly="false" options="#{customizedDocumentsView.excelOpt}"/>
     </h:commandLink>
 
 </h:form>

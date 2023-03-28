@@ -1,6 +1,7 @@
 package com.perfecciondigital.tallerprimefaces.controller;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
@@ -9,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="mjzBean")
 @SessionScoped
 
-public class MyJavaZoneBean {
+public class MyJavaZoneBean implements Serializable{
 
 	private ArrayList visitantes;
 	 
